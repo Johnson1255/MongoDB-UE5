@@ -1,0 +1,27 @@
+{
+  "name": "mongodb-ue5",
+  "version": "1.0.0",
+  "description": "Realizacion de un sistema de almacenamiento de datos para Unreal Engine 5 utilizando MongoDB y tambien Espress.js como intermediario",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johnson1255/MongoDB-UE5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Johnson1255/MongoDB-UE5/issues"
+  },
+  "homepage": "https://github.com/Johnson1255/MongoDB-UE5#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.4"
+  }
+}
