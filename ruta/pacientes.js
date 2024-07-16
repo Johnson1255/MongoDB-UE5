@@ -1,10 +1,16 @@
 const express = require('express')
 const ruta = express.Router()
-const paciente = require('../modelos/paciente')
+const Paciente = require('../modelos/paciente.js')
 
 //Conseguir totods
-ruta.get('/', (req, res) => {
-    res.send('Probando')
+ruta.get('/', async (req, res) => {
+    try{
+        const datosPacientes = await Paciente.find()
+        res.json(datosPacientes)
+
+    } catch (e) {
+        res.status(500).json({MensajeError: e.message}) //Estado 500 significa que hay un error en el servidor (Nuestra culpa)
+    }
 })
 
 //Conseguir uno

@@ -16,7 +16,7 @@ const pacientesEsquema = new mongoose.Schema({
     },
 
     sexo: {
-        type: String, //Importante resaltar que es para poner "M" (Masculino) o "F" (Femenino), ya que es el sexo
+        type: String, //Importante resaltar que es para poner "M" (Masculino) o "F" (Femenino), ya que es el sexo. (No poner otras)
         required: true
     },
 
