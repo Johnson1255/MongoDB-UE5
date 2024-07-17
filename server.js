@@ -15,7 +15,7 @@ app.post('/pacientes', async (req, res) => {
     try {
         
         const paciente = await Paciente.create(req.body)
-        res.status(200).json(paciente)
+        res.status(200).json(paciente);
 
     } catch (e) {
         console.log(e.message)
