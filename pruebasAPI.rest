@@ -2,3 +2,25 @@ GET http://localhost:3000/pacientes
 
 ###
 GET http://localhost:3000/pacientes/5
+
+###
+POST http://localhost:3000/pacientes
+{
+    "cedula": "6558169735",
+
+    "nombre": "Juan Alfredo",
+
+    "edad": "36",
+
+    "sexo": "M",
+
+    "telefono": "3009864795",
+
+    "correoElectronico": "juanalfredo@yahoo.com",
+
+    "estatura": "1.89",
+
+    "peso": "74",
+
+    "grupoSanguineo": "O+",
+}
