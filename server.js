@@ -23,6 +23,18 @@ app.post('/pacientes', async (req, res) => {
     }
 })
 
+app.get('/pacientes', async (req, res) => {
+    try {
+        
+        const pacientes = await Paciente.find({})
+        res.status(200).json(pacientes);
+
+    } catch (e) {
+        console.log(e.message)
+        res.status(500).json({Mensaje: e.message})
+    }
+})
+
 mongoose.connect(process.env.DATABASE_PRUEBA)
 .then(() => {
 
