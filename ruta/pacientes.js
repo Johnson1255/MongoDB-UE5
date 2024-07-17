@@ -1,6 +1,6 @@
 const express = require('express')
 const ruta = express.Router()
-const Paciente = require('../modelos/paciente.js')
+const Paciente = require('../modelos/paciente')
 
 //Conseguir totods
 ruta.get('/', async (req, res) => {
