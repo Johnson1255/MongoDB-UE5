@@ -11,7 +11,7 @@ db.once('open', () => console.log('Conectado a la Base de Batos'));
 
 app.use(express.json());
 
-const pacientesRuta = require('./ruta/pacientes');
+const pacientesRuta = require('./rutas/pacientes');
 app.use('/pacientes', pacientesRuta);
 
 app.listen(3000, () => console.log('Servidor Iniciado'));

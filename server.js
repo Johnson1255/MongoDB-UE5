@@ -3,37 +3,14 @@ require('dotenv').config();
 const express = require('express')
 const app = express ()
 const mongoose = require('mongoose')
-const Paciente = require('./modelos/modeloPaciente')
+
+const rutasGET = require('./rutas/rutasGET')
+const rutasPOST = require('./rutas/rutasPOST')
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.send('HOLA REALIZANDO PRUEBAS')
-})
-
-app.post('/pacientes', async (req, res) => {
-    try {
-        
-        const paciente = await Paciente.create(req.body)
-        res.status(200).json(paciente);
-
-    } catch (e) {
-        console.log(e.message)
-        res.status(500).json({Mensaje: e.message})
-    }
-})
-
-app.get('/pacientes', async (req, res) => {
-    try {
-        
-        const pacientes = await Paciente.find({})
-        res.status(200).json(pacientes);
-
-    } catch (e) {
-        console.log(e.message)
-        res.status(500).json({Mensaje: e.message})
-    }
-})
+app.use('/api', rutasGET)
+app.use('/api', rutasPOST)
 
 mongoose.connect(process.env.DATABASE_PRUEBA)
 .then(() => {
