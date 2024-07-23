@@ -14,4 +14,23 @@ router.post('/pacientes', async (req, res) => {
     }
 });
 
+router.post('/angulos', async (req, res) => {
+    try {
+
+        const { cedula, cadera, rodilla } = req.body
+        const paciente = await Paciente.findOne({ cedula })
+
+        if(!paciente) {
+            return res.status(404).json({ mensaje: 'Paciente no encontrado'})
+        }
+
+        const data = await ArduinoData.create({ pacienteID: paciente._id, cadera, rodilla})
+        res.status(200).json(data)
+
+    } catch (e) {
+        console.log(e.message)
+        res.status(500).json({ Mensaje: e.message })
+    }
+});
+
 module.exports = router;
