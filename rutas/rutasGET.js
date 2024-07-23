@@ -20,4 +20,20 @@ router.get('/pacientes', async (req, res) => {
     }
 })
 
+router.get('/pacientes/:cedula', async (req, res) => {
+    try {
+        const paciente = await Paciente.findOne({ cedula: req.params.cedula })
+
+        if(!paciente) {
+            return res.status(404).json({ mensaje: 'Paciente no encontrado'})
+        }
+
+        res.status(200).json(paciente)
+
+    } catch (e) {
+        console.log(e.message)
+        res.status(500).json({ mensaje: e.message })
+    }
+})
+
 module.exports = router;
