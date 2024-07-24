@@ -4,9 +4,7 @@
   "description": "Realizacion de un sistema de almacenamiento de datos para Unreal Engine 5 utilizando MongoDB y tambien Espress.js como intermediario",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon servidor.js",
-    "pruebas": "node server.js",
-    "devPruebas": "nodemon server.js"
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",
