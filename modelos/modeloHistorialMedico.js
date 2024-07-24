@@ -30,3 +30,7 @@ const esquemaHistorialMedico = new mongoose.Schema({
 }, {
     timestamps: true
 })
+
+const HistorialMedico = mongoose.model('HistorialMedico', esquemaHistorialMedico);
+
+module.exports = HistorialMedico;

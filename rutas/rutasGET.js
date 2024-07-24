@@ -25,7 +25,7 @@ router.get('/pacientes/:cedula', async (req, res) => {
         const paciente = await Paciente.findOne({ cedula: req.params.cedula })
 
         if(!paciente) {
-            return res.status(404).json({ mensaje: 'Paciente no encontrado'})
+            return res.status(404).json({ Mensaje: 'Paciente no encontrado'})
         }
 
         res.status(200).json(paciente)
@@ -33,6 +33,28 @@ router.get('/pacientes/:cedula', async (req, res) => {
     } catch (e) {
         console.log(e.message)
         res.status(500).json({ mensaje: e.message })
+    }
+})
+
+router.get('/historiales/:cedula', async (req, res) => {
+    try {
+
+        const paciente = await Paciente.findOne({ cedula: req.params.cedula })
+
+        if(!paciente) {
+            return res.status(404).json({ Mensaje: 'Paciente no Encontrado'})
+        }
+
+        const historial = await HistorialMedico.find({ pacienteID: paciente._id})
+        if(!historial) {
+            return res.status(404).json({ Mensaje: 'Historial Medico no Encontrado'})
+        }
+
+        res.status(200).json(historial)
+        
+    } catch (e) {
+        console.log(e.message)
+        res.status(500).json({ mensaje: e.message})
     }
 })
 

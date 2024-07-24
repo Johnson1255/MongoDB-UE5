@@ -33,4 +33,23 @@ router.post('/angulos', async (req, res) => {
     }
 });
 
+router.post('/historiales', async (req, res) => {
+    try {
+        
+        const { cedula, enfermedadesPrevias, alergias, cirugias, medicamentos } = req.body
+        const paciente = await Paciente.findOne({ cedula })
+
+        if(!paciente) {
+            return res.status(404).json({ Mensaje: 'Paciente no encontrado'})
+        }
+
+        const historial = await HistorialMedico.create({ pacienteID: paciente._id, enfermedadesPrevias, alergias, cirugias, medicamentos})
+        res.status(200).json(historial)
+
+    } catch (e) {
+        console.log(e.message)
+        res.status(500).json({ Mensaje: e.message})
+    }
+})
+
 module.exports = router;
