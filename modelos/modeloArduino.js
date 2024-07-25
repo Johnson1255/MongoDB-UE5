@@ -7,12 +7,22 @@ const esquemaArduino = new mongoose.Schema({
         required: true
     },
     
-    cadera: {
+    cadera0: {
         type: Number,
         required: true
     },
 
-    rodilla: {
+    cadera1: {
+        type: Number,
+        required: true
+    },
+
+    rodilla0: {
+        type: Number,
+        required: true
+    },
+
+    rodilla1: {
         type: Number,
         required: true
     }
