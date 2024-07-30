@@ -12,7 +12,10 @@ app.use(express.json())
 app.use('/api', rutasGET)
 app.use('/api', rutasPOST)
 
-mongoose.connect(process.env.DATABASE_PRUEBA)
+mongoose.connect(process.env.DATABASE_PRUEBA, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 .then(() => {
 
     console.log('Conectado a MongoDB')
@@ -22,5 +25,5 @@ mongoose.connect(process.env.DATABASE_PRUEBA)
     })
 
 }).catch(() => {
-    console.log(e)
+    console.log('Error al conectar a MongoDB', e.message)
 })
