@@ -17,6 +17,20 @@ router.post('/pacientes', async (req, res) => {
 router.post('/angulos', async (req, res) => {
     try {
 
+        //Codigo original para la implementacion
+
+        /*
+        const { cedula, cadera0, cadera1, rodilla0, rodilla1 } = req.body
+
+        if(!paciente) {
+            return res.status(404).json({ mensaje: 'Paciente no encontrado'})
+        }
+
+        const data = await ArduinoData.create({ pacienteID: paciente._id, cadera0, cadera1, rodilla0, rodilla1 })
+
+         */
+
+        //Para realizar pruebas
         const { cadera0, cadera1, rodilla0, rodilla1 } = req.body
 
         const data = await ArduinoData.create({ cadera0, cadera1, rodilla0, rodilla1 })

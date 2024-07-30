@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 
 const esquemaArduino = new mongoose.Schema({
+
+    //Cambiar los valores a "true" al momento de la implementacion y ya no de pruebas al servidor
+
     pacienteID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Paciente',
