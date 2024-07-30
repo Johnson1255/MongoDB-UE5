@@ -4,7 +4,7 @@ const esquemaArduino = new mongoose.Schema({
     pacienteID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Paciente',
-        required: true
+        required: false
     },
     
     cadera0: {
@@ -14,7 +14,7 @@ const esquemaArduino = new mongoose.Schema({
 
     cadera1: {
         type: Number,
-        required: true
+        required: false
     },
 
     rodilla0: {
@@ -24,7 +24,7 @@ const esquemaArduino = new mongoose.Schema({
 
     rodilla1: {
         type: Number,
-        required: true
+        required: false
     }
 
 }, {
